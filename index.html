@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Museo | Deriv Bot Builder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-mark">M</div>
+          <div>
+            <p class="eyebrow">Bot Studio</p>
+            <h1>Museo</h1>
+          </div>
+        </div>
+
+        <nav class="topnav">
+          <a href="#workspace">Builder</a>
+          <a href="#connections">Connection</a>
+          <a href="#bots">Bots</a>
+        </nav>
+
+        <button class="primary-btn small">Deploy</button>
+      </header>
+
+      <main class="layout">
+        <aside class="sidebar panel" id="bots">
+          <div class="panel-header">
+            <h2>Bot Library</h2>
+            <button class="ghost-btn" id="newBotBtn">+ New</button>
+          </div>
+
+          <div id="botList" class="bot-list"></div>
+        </aside>
+
+        <section class="workspace panel" id="workspace">
+          <div class="workspace-header">
+            <div>
+              <p class="eyebrow">Active bot workspace</p>
+              <h2 id="activeBotTitle">Bot Alpha</h2>
+            </div>
+            <div class="workspace-actions">
+              <button class="ghost-btn" id="importBotBtn">Import Bot</button>
+              <button class="primary-btn" id="saveBotBtn">Save</button>
+            </div>
+          </div>
+
+          <div class="canvas" id="canvas"></div>
+        </section>
+
+        <aside class="rightbar panel" id="connections">
+          <div class="panel-header">
+            <h2>Account & Connection</h2>
+            <span class="status-pill" id="connectionBadge">Offline</span>
+          </div>
+
+          <div class="field-group">
+            <label for="appIdInput">Deriv App ID</label>
+            <input id="appIdInput" type="text" value="1089" placeholder="App ID" />
+          </div>
+
+          <div class="field-group">
+            <label for="tokenInput">API Token</label>
+            <textarea id="tokenInput" rows="4" placeholder="Paste your Deriv token here"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label>Account Mode</label>
+            <div class="segmented">
+              <button class="segment active" data-mode="demo">Demo</button>
+              <button class="segment" data-mode="real">Real</button>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>Linked account</label>
+            <div class="linked-box" id="linkedAccountBox">
+              <span class="dot green"></span>
+              <div>
+                <strong>Demo account</strong>
+                <small>awaiting token</small>
+              </div>
+            </div>
+          </div>
+
+          <button class="primary-btn full" id="connectBtn">Connect to Deriv</button>
+
+          <div class="log-panel">
+            <div class="log-title">Console</div>
+            <div id="logOutput" class="log-output">
+              Ready to connect to Deriv WebSocket.
+            </div>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
